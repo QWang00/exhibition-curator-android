@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.northcoders.exhibition_curator_android.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.northcoders.exhibition_curator_android.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_collections"
+        tools:layout="@layout/fragment_collections" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.northcoders.exhibition_curator_android.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:label="@string/title_museums"
+        tools:layout="@layout/fragment_museums" />
 </navigation>
