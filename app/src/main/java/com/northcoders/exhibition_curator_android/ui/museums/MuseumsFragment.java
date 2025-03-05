@@ -1,4 +1,4 @@
-package com.northcoders.exhibition_curator_android.ui.notifications;
+package com.northcoders.exhibition_curator_android.ui.museums;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.northcoders.exhibition_curator_android.databinding.FragmentMuseumsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class MuseumsFragment extends Fragment {
 
     private FragmentMuseumsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        MuseumsViewModel museumsViewModel =
+                new ViewModelProvider(this).get(MuseumsViewModel.class);
 
         binding = FragmentMuseumsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textMuseums;
+        museumsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

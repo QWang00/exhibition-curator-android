@@ -1,16 +1,15 @@
-package com.northcoders.exhibition_curator_android.ui.home;
+package com.northcoders.exhibition_curator_android.ui.museums;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MuseumsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MuseumsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {
