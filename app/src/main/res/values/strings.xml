@@ -3,4 +3,23 @@
     <string name="title_search">Search</string>
     <string name="title_collections">My Collections</string>
     <string name="title_museums">Museums</string>
+
+    <string name="museums_main_title">Explore the Museums</string>
+
+    <!-- The Cleveland Museum of Art -->
+    <string name="cleveland_museum_title">The Cleveland Museum of Art</string>
+    <string name="cleveland_image1_desc">The front entrance of The Cleveland Museum of Art, a neoclassical building with tall columns and a statue of The Thinker in front.</string>
+    <string name="cleveland_image2_desc">Museum gallery with a knight in armor on horseback, surrounded by medieval displays and visitors.</string>
+    <string name="cleveland_museum_description">
+        Founded in 1913, The Cleveland Museum of Art houses over 66,500 artworks spanning 6,000 years, renowned for its quality and breadth.
+    </string>
+
+    <!-- Harvard Art Museums -->
+    <string name="harvard_museum_title">Harvard Art Museums</string>
+    <string name="harvard_image1_desc">The front entrance of the Harvard Art Museums, a red brick building with large windows, elegant stone steps, and a carved sign displaying the museum name.</string>
+    <string name="harvard_image2_desc">A grand interior courtyard of the Harvard Art Museums, featuring classical stone archways, modern glass walls, and a skylight ceiling.</string>
+    <string name="harvard_museum_description">
+        Comprising the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums, the Harvard Art Museums offer over 50 galleries of art across three floors, welcoming visitors from around the world.
+
+    </string>
 </resources>
