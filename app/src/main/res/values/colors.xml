@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Background and Primary Colors -->
+    <color name="background_black">#121212</color>
+    <color name="primary_midnight_blue">#1A237E</color>
+    <color name="secondary_deep_purple">#512DA8</color>
+
+    <!-- Accent and Text Colors -->
+    <color name="accent_cyan">#00E5FF</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_light_gray">#E0E0E0</color>
+    <color name="text_dark_gray">#B0BEC5</color>
+
+    <!-- Borders and Dividers -->
+    <color name="border_blue_gray">#37474F</color>
 </resources>
