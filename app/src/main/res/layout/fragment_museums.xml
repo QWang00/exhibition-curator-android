@@ -1,22 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/museums_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_black"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Main Title for the View -->
+        <TextView
+
+            android:id="@+id/museums_main_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/museums_main_title"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/accent_cyan"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/text_museums"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:textColor="@color/text_white"
+            android:layout_marginBottom="1dp"
+            android:padding="1dp"/>
+
+        <!-- Cleveland Museum of Art Section -->
+        <TextView
+            android:id="@+id/cleveland_museum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cleveland_museum_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_white"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Side-by-side images for Cleveland Museum -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/cleveland_image1"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/cleveland_image1_desc"
+                android:background="@color/border_blue_gray"
+                android:src="@drawable/cleveland_image1"/>
+
+            <ImageView
+                android:id="@+id/cleveland_image2"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/cleveland_image2_desc"
+                android:background="@color/border_blue_gray"
+                android:src="@drawable/cleveland_image2"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cleveland_museum_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cleveland_museum_description"
+            android:textColor="@color/text_light_gray"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Harvard Art Museums Section -->
+        <TextView
+            android:id="@+id/harvard_museum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/harvard_museum_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_white"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Side-by-side images for Harvard Art Museums -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/harvard_image1"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/harvard_image1_desc"
+                android:background="@color/border_blue_gray"
+                android:src="@drawable/harvard_image1"/>
+
+            <ImageView
+                android:id="@+id/harvard_image2"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/harvard_image2_desc"
+                android:background="@color/border_blue_gray"
+                android:src="@drawable/harvard_image2"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/harvard_museum_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/harvard_museum_description"
+            android:textColor="@color/text_light_gray"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:layout_marginBottom="72dp"/>
+    </LinearLayout>
+</ScrollView>
