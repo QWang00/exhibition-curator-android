@@ -36,4 +36,6 @@
     </string>
     <string name="ai_search_button">AI, What Should I Search?</string>
 
+    <!-- Artworks-->
+    <string name="artworks_new_search_button">New search</string>
 </resources>
