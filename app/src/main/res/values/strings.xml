@@ -24,7 +24,7 @@
     </string>
 
     <!-- Search-->
-    <string name="search_view_title">Explore\nthe artworks</string>
+    <string name="search_view_title">Explore the artworks</string>
     <string name="choose_museum_title">Choose the museum:</string>
     <string name="search_hint_keyword">Search by: Title or Description</string>
     <string name="search_hint_artist">Search by: Artist name</string>
