@@ -1,22 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background_black"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/text_search"
+    <!-- Scrollable Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <include layout="@layout/header_layout"/>
+
+            <!-- Divider between Header and Search View -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section Title -->
+            <TextView
+                android:id="@+id/search_function_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/search_view_title"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_white"
+                android:gravity="start"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="28dp"/>
+
+
+            <!-- Museum Selection Label -->
+            <TextView
+                android:id="@+id/museum_selection_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_museum_title"
+                android:textSize="18sp"
+                android:textColor="@color/text_white"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Radio Group for Museum Selection -->
+            <RadioGroup
+                android:id="@+id/museum_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <RadioButton
+                    android:id="@+id/radio_cleveland"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cleveland_museum_title"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_light_gray"
+                    android:buttonTint="@color/accent_cyan"/>
+
+                <RadioButton
+                    android:id="@+id/radio_harvard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/harvard_museum_title"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_light_gray"
+                    android:buttonTint="@color/accent_cyan"/>
+            </RadioGroup>
+
+
+
+
+            <!-- First Search Box: Keyword -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/grey"
+                app:cardCornerRadius="4dp"
+                app:cardBackgroundColor="@color/grey_near_black"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/search_keyword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/search_hint_keyword"
+                        android:textSize="18sp"
+                        android:textColorHint="@color/text_light_gray"
+                        android:textColor="@color/text_dark_gray"
+                        android:background="@android:color/black"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+                        android:singleLine="true"/>
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white">
+
+                        <ImageView
+                            android:id="@+id/btn_search_keyword"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_search"
+                            android:contentDescription="Search Keyword Button" />
+                    </FrameLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Second Search Box: Artist Name -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/grey"
+                app:cardCornerRadius="4dp"
+                app:cardBackgroundColor="@color/grey_near_black"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+
+                    <EditText
+                        android:id="@+id/search_artist"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/search_hint_artist"
+                        android:textSize="18sp"
+                        android:textColorHint="@color/text_light_gray"
+                        android:textColor="@color/text_dark_gray"
+                        android:background="@android:color/black"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+                        android:singleLine="true"/>
+
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white">
+
+                        <ImageView
+                            android:id="@+id/btn_search_artist"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_search"
+                            android:contentDescription="Search Artist Button"
+                            app:tint="@color/black"/>
+                    </FrameLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- AI Suggestion Section -->
+            <TextView
+                android:id="@+id/ai_suggestion_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ai_search_intro"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/accent_cyan"
+                android:gravity="start"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/ai_suggestion_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ai_search_description"
+                android:textSize="18sp"
+                android:textColor="@color/text_light_gray"
+                android:gravity="start"
+                android:lineSpacingExtra="8dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- AI Search Button -->
+            <Button
+                android:id="@+id/ai_search_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ai_search_button"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:backgroundTint="@color/primary_accent"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- AI-generated Text Section -->
+            <TextView
+                android:id="@+id/ai_generated_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AI Insights: Discover incredible artworks based on your preferences. AI will guide you through hidden masterpieces, historical connections, and fascinating details you may not have noticed before. Keep exploring and let AI surprise you!"
+                android:textSize="18sp"
+                android:textColor="@color/text_light_gray"
+                android:gravity="start"
+                android:lineSpacingExtra="8dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="72dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
