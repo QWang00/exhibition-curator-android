@@ -29,15 +29,4 @@ public interface ArtworkApiService {
     );
 
 
-    @POST("artworks")
-    Call<Artwork> addArtwork(@Body Artwork artwork);
-
-
-    @PUT("artworks/{id}")
-    Call<Artwork> updateArtwork(@Path("id") long id, @Body Artwork artwork);
-
-
-    @DELETE("artworks/{id}")
-    Call<String> deleteArtwork(@Path("id") long id);
-
 }
