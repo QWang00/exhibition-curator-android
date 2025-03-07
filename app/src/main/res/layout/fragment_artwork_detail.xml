@@ -110,7 +110,8 @@
                 android:scaleType="centerCrop"
                 android:contentDescription="Artwork Image"
                 android:background="@color/grey_near_black"
-                android:src="@drawable/placeholder_image"
+                android:src="@drawable/ic_placeholder"
+                app:tint="@color/grey"
                 android:layout_marginBottom="12dp"/>
 
             <!-- Artwork Preview (One Long Line) -->
@@ -119,11 +120,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title | Artist | Year | Museum"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textColor="@color/text_light_gray"
                 android:textStyle="bold"
                 android:gravity="start"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="18dp"/>
 
             <!-- Artwork Description -->
             <TextView
