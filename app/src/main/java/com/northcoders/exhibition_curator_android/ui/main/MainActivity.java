@@ -1,15 +1,13 @@
-package com.northcoders.exhibition_curator_android;
+package com.northcoders.exhibition_curator_android.ui.main;
 
 import android.os.Bundle;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
+import com.northcoders.exhibition_curator_android.R;
 import com.northcoders.exhibition_curator_android.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_search, R.id.navigation_collections, R.id.navigation_museums)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
