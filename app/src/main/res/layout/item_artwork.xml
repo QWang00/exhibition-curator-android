@@ -17,12 +17,12 @@
 
     <!-- Title (Right, Wraps Automatically) -->
     <TextView
-        android:id="@+id/artwork_title"
+        android:id="@+id/artwork_preview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:paddingStart="12dp"
-        android:text="The Red Kerchief, c.1868-73. Claude Monet (French, 1840-1926)."
+
         android:textSize="16sp"
         android:textColor="@color/text_white"
         android:maxLines="3"
