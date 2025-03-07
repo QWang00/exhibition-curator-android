@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 
 public interface ArtworkApiService {
 
-    @GET("api/v1/search-results/{museum}")
+    @GET("search-results/{museum}")
     Call<Map<String, Object>> searchArtworks(
             @Path("museum") String museum,
             @Query("keyword") String keyword,
@@ -22,22 +22,22 @@ public interface ArtworkApiService {
     );
 
 
-    @GET("api/v1/{museum}/artwork/{sourceId}")
+    @GET("{museum}/artwork/{sourceId}")
     Call<Artwork> getArtworkDetails(
             @Path("museum") String museum,
             @Path("sourceId") String sourceId
     );
 
 
-    @POST("api/v1/artworks")
+    @POST("artworks")
     Call<Artwork> addArtwork(@Body Artwork artwork);
 
 
-    @PUT("api/v1/artworks/{id}")
+    @PUT("artworks/{id}")
     Call<Artwork> updateArtwork(@Path("id") long id, @Body Artwork artwork);
 
 
-    @DELETE("api/v1/artworks/{id}")
+    @DELETE("artworks/{id}")
     Call<String> deleteArtwork(@Path("id") long id);
 
 }
