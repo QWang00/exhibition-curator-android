@@ -35,7 +35,7 @@ public class RetrofitInstance {
     }
 
     // Provide API service for Exhibitions (Collections)
-    public static CollectionApiService getExhibitionService() {
+    public static CollectionApiService getCollectionService() {
         return getRetrofitInstance().create(CollectionApiService.class);
     }
 }
