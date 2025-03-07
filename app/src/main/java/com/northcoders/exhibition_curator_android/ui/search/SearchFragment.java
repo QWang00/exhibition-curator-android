@@ -4,32 +4,69 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import com.northcoders.exhibition_curator_android.databinding.FragmentSearchBinding;
+import androidx.navigation.Navigation;
+import com.northcoders.exhibition_curator_android.R;
 
 public class SearchFragment extends Fragment {
+    private RadioGroup museumRadioGroup;
+    private EditText keywordInput, artistInput;
+    private ImageView btnSearchKeyword, btnSearchArtist;
 
-    private FragmentSearchBinding binding;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        SearchViewModel searchViewModel =
-                new ViewModelProvider(this).get(SearchViewModel.class);
+        museumRadioGroup = view.findViewById(R.id.museum_radio_group);
+        keywordInput = view.findViewById(R.id.search_keyword);
+        artistInput = view.findViewById(R.id.search_artist);
+        btnSearchKeyword = view.findViewById(R.id.btn_search_keyword);
+        btnSearchArtist = view.findViewById(R.id.btn_search_artist);
 
-        binding = FragmentSearchBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        // Both buttons trigger the same search function
+        btnSearchKeyword.setOnClickListener(v -> performSearch(v));
+        btnSearchArtist.setOnClickListener(v -> performSearch(v));
 
-        //final TextView textView = binding.textSearch;
-        //searchViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return view;
+    }
+
+    private void performSearch(View view) {
+        int selectedMuseumId = museumRadioGroup.getCheckedRadioButtonId();
+        String museumName = "";
+
+        if (selectedMuseumId == R.id.radio_cleveland) {
+            museumName = "cleveland";
+        } else if (selectedMuseumId == R.id.radio_harvard) {
+            museumName = "harvard";
+        }
+
+        String keyword = keywordInput.getText().toString().trim();
+        String artist = artistInput.getText().toString().trim();
+
+        if (!museumName.isEmpty()) {
+            // Pass search parameters to SearchResultFragment
+            Bundle bundle = new Bundle();
+            bundle.putString("museum", museumName);
+            bundle.putString("keyword", keyword);
+            bundle.putString("artist", artist);
+            bundle.putInt("page", 1);
+
+            Navigation.findNavController(view).navigate(R.id.action_search_to_search_result, bundle);
+        }
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onResume() {
+        super.onResume();
+        // Reset form fields
+        museumRadioGroup.clearCheck();
+        keywordInput.setText("");
+        artistInput.setText("");
     }
 }
