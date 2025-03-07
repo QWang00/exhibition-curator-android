@@ -11,9 +11,45 @@
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
+    <!-- Action: Navigate to SearchResultFragment -->
+        <action
+            android:id="@+id/action_search_to_search_result"
+            app:destination="@id/navigation_search_result" />
+
+    <!-- SearchResultFragment -->
+    <fragment
+        android:id="@+id/navigation_search_result"
+        android:name="com.northcoders.exhibition_curator_android.ui.search.SearchResultFragment"
+        android:label="Search Results"
+        tools:layout="@layout/fragment_search_result" >
+
+        <action
+            android:id="@+id/action_search_result_to_navigation_search"
+            app:destination="@id/navigation_search"
+            app:popUpTo="@id/navigation_search"
+            app:popUpToInclusive="true"/>
+
+        <argument
+            android:name="museum"
+            app:argType="string" />
+
+        <argument
+            android:name="keyword"
+            app:argType="string" />
+
+        <argument
+            android:name="artist"
+            app:argType="string" />
+
+        <argument
+            android:name="page"
+            app:argType="integer" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/navigation_collections"
-        android:name="com.northcoders.exhibition_curator_android.ui.my_collections.MyCollectionsFragment"
+        android:name="com.northcoders.exhibition_curator_android.ui.collections.MyCollectionsFragment"
         android:label="@string/title_collections"
         tools:layout="@layout/fragment_collections" />
 
@@ -22,4 +58,24 @@
         android:name="com.northcoders.exhibition_curator_android.ui.museums.MuseumsFragment"
         android:label="@string/title_museums"
         tools:layout="@layout/fragment_museums" />
+
+    <fragment
+        android:id="@+id/navigation_artwork_details"
+        android:name="com.northcoders.exhibition_curator_android.ui.search.ArtworkDetailsFragment"
+        android:label="Artwork Details"
+        tools:layout="@layout/fragment_artwork_detail">
+
+        <action
+            android:id="@+id/action_artwork_details_to_search_result"
+            app:destination="@id/navigation_search_result"/>
+
+        <argument
+            android:name="sourceArtworkId"
+            app:argType="string" />
+
+        <argument
+            android:name="museumName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
