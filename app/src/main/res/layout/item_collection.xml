@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="12dp"
+    android:orientation="horizontal"
+    android:background="@color/grey_near_black"
+    android:gravity="center_vertical"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Collection Default Image -->
+    <ImageView
+        android:id="@+id/collection_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_default_collection"
+        android:contentDescription="Collection image"/>
+
+    <!-- Collection Name -->
+    <TextView
+        android:id="@+id/collection_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="12dp"
+        android:text="Collection Name"
+        android:textSize="16sp"
+        android:textColor="@color/text_white"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"/>
+
+    <!-- Right Arrow Icon (Visual Only) -->
+    <ImageView
+        android:id="@+id/arrow_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_right"
+        app:tint="@color/white"
+        android:contentDescription="Navigate"/>
+</LinearLayout>
