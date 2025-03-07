@@ -1,0 +1,11 @@
+<!-- res/drawable/underline.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="-22dp" android:right="-2dp" android:left="-2dp">
+        <shape android:shape="line">
+            <stroke
+                android:width="2dp"
+                android:color="@color/accent_cyan"/>
+            <padding android:bottom="4dp"/>
+        </shape>
+    </item>
+</layer-list>
