@@ -16,7 +16,7 @@
     </string>
 
     <!-- Harvard Art Museums -->
-    <string name="harvard_museum_title">Harvard Art Museums</string>
+    <string name="harvard_museum_title">Harvard Art Museum</string>
     <string name="harvard_image1_desc">The front entrance of the Harvard Art Museums, a red brick building with large windows, elegant stone steps, and a carved sign displaying the museum name.</string>
     <string name="harvard_image2_desc">A grand interior courtyard of the Harvard Art Museums, featuring classical stone archways, modern glass walls, and a skylight ceiling.</string>
     <string name="harvard_museum_description">
@@ -24,7 +24,7 @@
     </string>
 
     <!-- Search-->
-    <string name="search_view_title">Explore the artworks</string>
+    <string name="search_view_title">Explore the artwork</string>
     <string name="choose_museum_title">Choose the museum:</string>
     <string name="search_hint_keyword">Search by: Title or Description</string>
     <string name="search_hint_artist">Search by: Artist name</string>
