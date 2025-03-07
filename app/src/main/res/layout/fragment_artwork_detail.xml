@@ -39,6 +39,7 @@
 
                 <!-- Left Side: Back Arrow + Search List -->
                 <LinearLayout
+                    android:id="@+id/search_list_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
