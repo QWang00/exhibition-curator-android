@@ -1,7 +1,7 @@
-package com.northcoders.exhibition_curator_android.service.openai;
+package com.northcoders.exhibition_curator_android.service;
 
-import com.northcoders.exhibition_curator_android.service.openai.model.ChatRequest;
-import com.northcoders.exhibition_curator_android.service.openai.model.ChatResponse;
+import com.northcoders.exhibition_curator_android.model.ChatRequest;
+import com.northcoders.exhibition_curator_android.model.ChatResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;

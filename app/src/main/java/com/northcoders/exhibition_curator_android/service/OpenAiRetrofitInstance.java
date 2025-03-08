@@ -1,4 +1,4 @@
-package com.northcoders.exhibition_curator_android.service.openai;
+package com.northcoders.exhibition_curator_android.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

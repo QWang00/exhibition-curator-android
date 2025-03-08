@@ -1,4 +1,4 @@
-package com.northcoders.exhibition_curator_android.service.openai.model;
+package com.northcoders.exhibition_curator_android.model;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ public class ChatResponse {
     public static class Choice {
         private int index;
         private Message message;
-        // "finish_reason", etc.
 
         public int getIndex() { return index; }
         public Message getMessage() { return message; }
