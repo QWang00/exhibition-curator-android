@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/navigation_collections"
-        android:name="com.northcoders.exhibition_curator_android.ui.collections.MyCollectionsFragment"
+        android:name="com.northcoders.exhibition_curator_android.ui.collections.CollectionFragment"
         android:label="@string/title_collections"
         tools:layout="@layout/fragment_collections" />
 
