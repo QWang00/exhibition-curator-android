@@ -110,8 +110,7 @@
                 android:scaleType="centerCrop"
                 android:contentDescription="Artwork Image"
                 android:background="@color/grey_near_black"
-                android:src="@drawable/ic_placeholder"
-                app:tint="@color/grey"
+                android:src="@drawable/placeholder_image"
                 android:layout_marginBottom="12dp"/>
 
             <!-- Artwork Preview (One Long Line) -->
