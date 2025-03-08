@@ -1,12 +1,15 @@
 package com.northcoders.exhibition_curator_android.ui.search;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -40,7 +43,11 @@ public class SearchFragment extends Fragment {
         int selectedMuseumId = museumRadioGroup.getCheckedRadioButtonId();
         String museumName = "";
 
-        if (selectedMuseumId == R.id.radio_cleveland) {
+        // Museum validation
+        if (selectedMuseumId == -1) {
+            showCustomToast("Please select a museum first!", Toast.LENGTH_SHORT);
+            return;
+        } else if (selectedMuseumId == R.id.radio_cleveland) {
             museumName = "cleveland";
         } else if (selectedMuseumId == R.id.radio_harvard) {
             museumName = "harvard";
@@ -49,16 +56,20 @@ public class SearchFragment extends Fragment {
         String keyword = keywordInput.getText().toString().trim();
         String artist = artistInput.getText().toString().trim();
 
-        if (!museumName.isEmpty()) {
-            // Pass search parameters to SearchResultFragment
-            Bundle bundle = new Bundle();
-            bundle.putString("museum", museumName);
-            bundle.putString("keyword", keyword);
-            bundle.putString("artist", artist);
-            bundle.putInt("page", 1);
-
-            Navigation.findNavController(view).navigate(R.id.action_search_to_search_result, bundle);
+        // Search criteria validation
+        if (keyword.isEmpty() && artist.isEmpty()) {
+            showCustomToast("Please enter at least a keyword or artist name", Toast.LENGTH_LONG);
+            return;
         }
+
+        // Proceed with search
+        Bundle bundle = new Bundle();
+        bundle.putString("museum", museumName);
+        bundle.putString("keyword", keyword);
+        bundle.putString("artist", artist);
+        bundle.putInt("page", 1);
+
+        Navigation.findNavController(view).navigate(R.id.action_search_to_search_result, bundle);
     }
 
     @Override
@@ -68,5 +79,19 @@ public class SearchFragment extends Fragment {
         museumRadioGroup.clearCheck();
         keywordInput.setText("");
         artistInput.setText("");
+    }
+
+    private void showCustomToast(String message, int duration) {
+        // Inflate layout without attaching to parent
+        View layout = getLayoutInflater().inflate(R.layout.custom_toast, null);
+
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText(message);
+
+        Toast toast = new Toast(requireContext());
+        toast.setDuration(duration);
+        toast.setGravity(Gravity.CENTER, 0, 0); // Center on screen
+        toast.setView(layout);
+        toast.show();
     }
 }
