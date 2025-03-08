@@ -6,13 +6,17 @@ android {
     namespace 'com.northcoders.exhibition_curator_android'
     compileSdk 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId "com.northcoders.exhibition_curator_android"
         minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "OPENAI_API_KEY", OPENAI_API_KEY
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
