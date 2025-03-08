@@ -13,33 +13,33 @@ import java.util.List;
 public interface CollectionApiService {
 
 
-    @GET("collections")
+    @GET("exhibitions")
     Call<List<Collection>> getAllCollections();
 
 
-    @GET("collection/{id}")
+    @GET("exhibition/{id}")
     Call<Collection> getCollectionById(@Path("id") Long id);
 
 
-    @POST("collections")
+    @POST("exhibitions")
     Call<Collection> createCollection(@Query("name") String name);
 
 
-    @PUT("collection/{id}/name")
+    @PUT("exhibition/{id}/name")
     Call<Collection> updateCollectionName(@Path("id") Long id, @Query("newName") String newName);
 
 
-    @POST("collection/{id}/artworks")
+    @POST("exhibition/{id}/artworks")
     Call<Collection> addArtworkToCollection(
-            @Path("id") Long collectionId,
+            @Path("id") Long exhibitionId,
             @Query("sourceArtworkId") String sourceArtworkId,
             @Query("museum") String museum
     );
 
 
-    @DELETE("collection/{collectionId}/artworks/{artworkId}")
+    @DELETE("exhibition/{exhibitionId}/artworks/{artworkId}")
     Call<Void> removeArtworkFromCollection(
-            @Path("collectionId") Long collectionId,
+            @Path("exhibitionId") Long exhibitionId,
             @Path("artworkId") Long artworkId
     );
 }
