@@ -1,5 +1,7 @@
 # Exhibition Curator
 
+<img src="gif1.gif" width="300">
+
 ## About The Project
 
 **Exhibition Curator** is an Android app that lets users explore and curate digital artwork collections from two museum APIs. It features real-time artwork search, saved collections, and an AI-powered assistant using **ChatGPT** to suggest searches based on famous artworks.
