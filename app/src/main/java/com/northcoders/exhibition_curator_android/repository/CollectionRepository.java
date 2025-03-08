@@ -18,7 +18,7 @@ public class CollectionRepository {
         this.collectionApiService = RetrofitInstance.getCollectionService(); // Retrieves the API service for exhibitions
     }
 
-    // ✅ Fetch all exhibitions (collections)
+    //  Fetch all exhibitions (collections)
     public LiveData<List<Collection>> fetchAllCollections() {
         MutableLiveData<List<Collection>> exhibitionsLiveData = new MutableLiveData<>();
 
@@ -43,7 +43,7 @@ public class CollectionRepository {
         return exhibitionsLiveData;
     }
 
-    // ✅ Fetch a single exhibition (collection) by ID
+    // Fetch a single exhibition (collection) by ID
     public LiveData<Collection> fetchCollectionById(Long id) {
         MutableLiveData<Collection> collectionLiveData = new MutableLiveData<>();
 
@@ -68,7 +68,7 @@ public class CollectionRepository {
         return collectionLiveData;
     }
 
-    // ✅ Create a new exhibition (collection)
+    // Create a new exhibition (collection)
     public LiveData<Collection> createCollection(String name) {
         MutableLiveData<Collection> newCollectionLiveData = new MutableLiveData<>();
 
@@ -93,7 +93,7 @@ public class CollectionRepository {
         return newCollectionLiveData;
     }
 
-    // ✅ Update an exhibition's (collection's) name
+    // Update an exhibition's (collection's) name
     public LiveData<Collection> updateCollectionName(Long id, String newName) {
         MutableLiveData<Collection> updatedCollectionLiveData = new MutableLiveData<>();
 
@@ -118,7 +118,7 @@ public class CollectionRepository {
         return updatedCollectionLiveData;
     }
 
-    // ✅ Add an artwork to a collection
+    // Add an artwork to a collection
     public LiveData<Collection> addArtworkToCollection(Long collectionId, String sourceArtworkId, String museum) {
         MutableLiveData<Collection> updatedCollectionLiveData = new MutableLiveData<>();
 
@@ -144,7 +144,7 @@ public class CollectionRepository {
         return updatedCollectionLiveData;
     }
 
-    // ✅ Remove an artwork from a collection
+    // Remove an artwork from a collection
     public LiveData<Boolean> removeArtworkFromCollection(Long collectionId, Long artworkId) {
         MutableLiveData<Boolean> successLiveData = new MutableLiveData<>();
 
