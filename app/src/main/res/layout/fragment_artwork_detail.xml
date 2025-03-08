@@ -84,7 +84,7 @@
                         android:id="@+id/heart_icon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_save"
+                        android:src="@drawable/ic_heart_outline"
                         android:contentDescription="Save to Collection"
                         android:padding="4dp"
                         android:clickable="true"
