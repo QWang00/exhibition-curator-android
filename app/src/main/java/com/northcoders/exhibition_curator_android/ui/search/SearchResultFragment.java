@@ -1,15 +1,16 @@
 package com.northcoders.exhibition_curator_android.ui.search;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavOptions;
@@ -77,6 +78,9 @@ public class SearchResultFragment extends Fragment {
         if (artworks == null || artworks.isEmpty()) {
             TextView emptyView = new TextView(requireContext());
             emptyView.setText("No artworks found");
+            emptyView.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary_accent));
+            emptyView.setTextSize(23);
+            emptyView.setGravity(Gravity.CENTER);
             artworkContainer.addView(emptyView);
             return;
         }
