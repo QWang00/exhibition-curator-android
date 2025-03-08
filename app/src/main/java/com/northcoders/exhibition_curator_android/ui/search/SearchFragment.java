@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import com.northcoders.exhibition_curator_android.R;
 
@@ -20,11 +22,20 @@ public class SearchFragment extends Fragment {
     private RadioGroup museumRadioGroup;
     private EditText keywordInput, artistInput;
     private ImageView btnSearchKeyword, btnSearchArtist;
+    private ChatViewModel chatViewModel;
+    private TextView aiGeneratedText;
+    private Button aiSearchButton;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        aiGeneratedText = view.findViewById(R.id.ai_generated_text);
+        aiSearchButton = view.findViewById(R.id.ai_search_button);
 
         museumRadioGroup = view.findViewById(R.id.museum_radio_group);
         keywordInput = view.findViewById(R.id.search_keyword);
@@ -35,6 +46,17 @@ public class SearchFragment extends Fragment {
         // Both buttons trigger the same search function
         btnSearchKeyword.setOnClickListener(v -> performSearch(v));
         btnSearchArtist.setOnClickListener(v -> performSearch(v));
+
+        chatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
+        chatViewModel.getChatResponseLiveData().observe(getViewLifecycleOwner(), response -> {
+            // Update UI with GPT response
+            aiGeneratedText.setText(response);
+        });
+
+        aiSearchButton.setOnClickListener(v -> {
+            String userPrompt = "randomly pick 4 below artworks.make sure only givemie two artworks from each museum.no introduction & description.if no artworks only artist, just list artist,otherwise list title&artist categorized by museum name.Harvard Art Museum: The Breakfast Table(John Singer Sargent);Pablo Ruiz Picasso;Self-Portrait Dedicated to Paul Gauguin(Vincent van Gogh);Self-Portrait in Tuxedo(Max Beckmann);Arrival of a Train(Claude Monet);Kneeling Attendant Bodhisattva;Emergency stater of Athens;Small jar with anthropomorphic cover; Cleveland Museum of Art: La Vie;Armor for Man and Horse with Völs-Colonna Arms;The Red Kerchief;Claude Monet;Vincent van Gogh;Portrait of Tieleman Roosterman;Cupid and Psyche(Jacques-Louis David)";
+            chatViewModel.callChatGPT(userPrompt);
+        });
 
         return view;
     }
