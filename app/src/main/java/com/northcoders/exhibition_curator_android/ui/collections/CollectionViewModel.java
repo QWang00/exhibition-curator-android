@@ -1,3 +1,4 @@
+
 package com.northcoders.exhibition_curator_android.ui.collections;
 
 import androidx.lifecycle.LiveData;
@@ -19,6 +20,14 @@ public class CollectionViewModel extends ViewModel {
 
     public LiveData<Collection> createCollection(String name) {
         return collectionRepository.createCollection(name);
+    }
+
+    public LiveData<Collection> addArtworkToCollection(Long collectionId, String sourceArtworkId, String museum) {
+        return collectionRepository.addArtworkToCollection(collectionId, sourceArtworkId, museum);
+    }
+
+    public LiveData<Boolean> removeArtworkFromCollection(Long collectionId, Long artworkId) {
+        return collectionRepository.removeArtworkFromCollection(collectionId, artworkId);
     }
 
 }
