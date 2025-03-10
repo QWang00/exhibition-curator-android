@@ -21,10 +21,13 @@ public class ArtworkViewModel extends ViewModel {
     private String currentMuseum;
     private String currentKeyword;
     private String currentArtist;
+    private final MutableLiveData<Boolean> isSavedLiveData = new MutableLiveData<>(false);
+    private final MutableLiveData<Long> savedCollectionIdLiveData = new MutableLiveData<>();
+    private final MutableLiveData<Long> artworkIdLiveData = new MutableLiveData<>();
 
     public ArtworkViewModel() {
         artworkApiService = RetrofitInstance.getArtworkService();
-        currentPageLiveData.setValue(1); // Start from page 1
+        currentPageLiveData.setValue(1);
     }
 
     public LiveData<List<Artwork>> getArtworksLiveData() {
@@ -100,5 +103,30 @@ public class ArtworkViewModel extends ViewModel {
                         artworkDetailsLiveData.postValue(null);
                     }
                 });
+    }
+
+    public LiveData<Boolean> getIsSavedLiveData() {
+        return isSavedLiveData;
+    }
+
+    public void setIsSaved(boolean saved) {
+        isSavedLiveData.setValue(saved);
+    }
+
+    public LiveData<Long> getSavedCollectionIdLiveData() {
+        return savedCollectionIdLiveData;
+    }
+
+    public void setSavedCollectionId(Long collectionId) {
+        savedCollectionIdLiveData.setValue(collectionId);
+
+    }
+
+    public LiveData<Long> getArtworkIdLiveData() {
+        return artworkIdLiveData;
+    }
+
+    public void setArtworkId(Long artworkId) {
+        artworkIdLiveData.setValue(artworkId);
     }
 }
