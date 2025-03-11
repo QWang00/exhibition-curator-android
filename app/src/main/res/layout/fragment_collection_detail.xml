@@ -64,20 +64,13 @@
             android:focusable="true"/>
     </RelativeLayout>
 
-    <!-- Delete Button -->
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Collection"
-        android:backgroundTint="@color/secondary_deep_purple"
-        android:textColor="@color/text_white"
-        android:layout_marginBottom="16dp"/>
 
     <!-- RecyclerView for Artworks -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artworks_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"
         android:overScrollMode="never"/>
 </LinearLayout>
