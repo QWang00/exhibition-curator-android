@@ -51,7 +51,23 @@
         android:id="@+id/navigation_collections"
         android:name="com.northcoders.exhibition_curator_android.ui.collections.CollectionFragment"
         android:label="@string/title_collections"
-        tools:layout="@layout/fragment_collections" />
+        tools:layout="@layout/fragment_collections" >
+        <action
+            android:id="@+id/action_collections_to_collection_detail"
+            app:destination="@id/navigation_collection_detail" />
+    </fragment>
+
+    <!-- New Collection Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_collection_detail"
+        android:name="com.northcoders.exhibition_curator_android.ui.collections.CollectionDetailFragment"
+        android:label="Collection Detail"
+        tools:layout="@layout/fragment_collection_detail">
+
+        <argument
+            android:name="collectionId"
+            app:argType="long" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_museums"
