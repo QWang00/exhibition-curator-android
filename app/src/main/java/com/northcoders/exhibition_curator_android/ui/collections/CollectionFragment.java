@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -45,15 +46,7 @@ public class CollectionFragment extends Fragment {
         return view;
     }
 
-    private void fetchCollections() {
-        collectionViewModel.fetchAllCollections().observe(getViewLifecycleOwner(), collections -> {
-            if (collections != null) {
-                collectionAdapter.setCollectionList(collections);
-            } else {
-                Toast.makeText(getContext(), "Failed to load collections", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
 
     private void showCreateCollectionBottomSheet() {
         BottomSheetDialog dialog = new BottomSheetDialog(requireContext());
@@ -83,6 +76,26 @@ public class CollectionFragment extends Fragment {
                 fetchCollections();
             } else {
                 Toast.makeText(getContext(), "Failed to create collection", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void fetchCollections() {
+        collectionViewModel.fetchAllCollections().observe(getViewLifecycleOwner(), collections -> {
+            if (collections != null) {
+                collectionAdapter.setCollectionList(collections);
+
+                collectionAdapter.setOnItemClickListener(collection -> {
+                    Bundle args = new Bundle();
+                    args.putLong("collectionId", collection.getId());
+
+                    Navigation.findNavController(requireView()).navigate(
+                            R.id.action_collections_to_collection_detail,
+                            args
+                    );
+                });
+            } else {
+                Toast.makeText(getContext(), "Failed to load collections", Toast.LENGTH_SHORT).show();
             }
         });
     }
