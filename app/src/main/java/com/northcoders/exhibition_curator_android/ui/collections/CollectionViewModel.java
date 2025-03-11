@@ -29,5 +29,12 @@ public class CollectionViewModel extends ViewModel {
     public LiveData<Boolean> removeArtworkFromCollection(Long collectionId, Long artworkId) {
         return collectionRepository.removeArtworkFromCollection(collectionId, artworkId);
     }
+    public LiveData<Collection> getCollectionById(Long id) {
+        return collectionRepository.fetchCollectionById(id);
+    }
+
+    public LiveData<Collection> updateCollectionName(Long id, String newName) {
+        return collectionRepository.updateCollectionName(id, newName);
+    }
 
 }
