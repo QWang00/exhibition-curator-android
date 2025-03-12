@@ -5,18 +5,19 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_search">
 
+    <!--search-->
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.northcoders.exhibition_curator_android.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
 
-    <!-- Action: Navigate to SearchResultFragment -->
         <action
             android:id="@+id/action_search_to_search_result"
             app:destination="@id/navigation_search_result" />
+    </fragment>
 
-    <!-- SearchResultFragment -->
+    <!-- search result -->
     <fragment
         android:id="@+id/navigation_search_result"
         android:name="com.northcoders.exhibition_curator_android.ui.search.SearchResultFragment"
@@ -46,7 +47,7 @@
             app:argType="integer" />
     </fragment>
 
-
+    <!--collections-->
     <fragment
         android:id="@+id/navigation_collections"
         android:name="com.northcoders.exhibition_curator_android.ui.collections.CollectionFragment"
@@ -57,7 +58,7 @@
             app:destination="@id/navigation_collection_detail" />
     </fragment>
 
-    <!-- New Collection Detail Fragment -->
+    <!-- collection detail -->
     <fragment
         android:id="@+id/navigation_collection_detail"
         android:name="com.northcoders.exhibition_curator_android.ui.collections.CollectionDetailFragment"
@@ -73,12 +74,14 @@
             app:argType="long" />
     </fragment>
 
+    <!--museums-->
     <fragment
         android:id="@+id/navigation_museums"
         android:name="com.northcoders.exhibition_curator_android.ui.museums.MuseumsFragment"
         android:label="@string/title_museums"
         tools:layout="@layout/fragment_museums" />
 
+    <!-- artwork details-->
     <fragment
         android:id="@+id/navigation_artwork_details"
         android:name="com.northcoders.exhibition_curator_android.ui.search.ArtworkDetailsFragment"
