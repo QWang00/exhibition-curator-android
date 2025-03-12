@@ -85,7 +85,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_heart_outline"
-                        android:contentDescription="Save to Collection"
+                        android:contentDescription="Save / Remove"
                         android:padding="4dp"
                         android:clickable="true"
                         android:focusable="true"/>
