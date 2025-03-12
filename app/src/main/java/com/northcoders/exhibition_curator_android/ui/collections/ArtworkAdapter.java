@@ -15,10 +15,21 @@ import java.util.List;
 
 public class ArtworkAdapter extends RecyclerView.Adapter<ArtworkAdapter.ViewHolder> {
     private List<Artwork> artworkList;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Artwork artwork);
+    }
 
     public ArtworkAdapter() {
         this.artworkList = new ArrayList<>();
     }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
 
     @NonNull
     @Override
@@ -37,6 +48,11 @@ public class ArtworkAdapter extends RecyclerView.Adapter<ArtworkAdapter.ViewHold
          Glide.with(holder.itemView.getContext())
               .load(artwork.getImageUrl())
               .into(holder.artworkImage);
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(artwork);
+            }
+        });
     }
 
     @Override
