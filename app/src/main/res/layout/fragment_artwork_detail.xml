@@ -63,7 +63,7 @@
                         android:id="@+id/search_list_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Search List"
+                        android:text="Back"
                         android:textSize="16sp"
                         android:textColor="@color/accent_cyan"
                         android:textStyle="bold"
