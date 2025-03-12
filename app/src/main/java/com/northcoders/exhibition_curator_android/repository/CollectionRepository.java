@@ -169,4 +169,29 @@ public class CollectionRepository {
 
         return successLiveData;
     }
+
+    public LiveData<Collection> addArtworkToCollectionFromLocal(Long collectionId, Long artworkId) {
+        MutableLiveData<Collection> updatedCollectionLiveData = new MutableLiveData<>();
+
+        collectionApiService.addArtworkToCollectionFromLocal(collectionId, artworkId)
+                .enqueue(new Callback<Collection>() {
+                    @Override
+                    public void onResponse(Call<Collection> call, Response<Collection> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            updatedCollectionLiveData.postValue(response.body());
+                        } else {
+                            Log.e("CollectionRepository", "Failed to add artwork from local database.");
+                            updatedCollectionLiveData.postValue(null);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Collection> call, Throwable t) {
+                        Log.e("CollectionRepository", "API Error: " + t.getMessage());
+                        updatedCollectionLiveData.postValue(null);
+                    }
+                });
+
+        return updatedCollectionLiveData;
+    }
 }
