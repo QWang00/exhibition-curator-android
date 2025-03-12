@@ -64,6 +64,10 @@
         android:label="Collection Detail"
         tools:layout="@layout/fragment_collection_detail">
 
+        <action
+            android:id="@+id/action_navigation_collection_detail_to_navigation_artwork_details"
+            app:destination="@id/navigation_artwork_details" />
+
         <argument
             android:name="collectionId"
             app:argType="long" />
