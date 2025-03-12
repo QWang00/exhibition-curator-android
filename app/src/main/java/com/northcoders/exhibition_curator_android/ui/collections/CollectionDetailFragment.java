@@ -57,7 +57,6 @@ public class CollectionDetailFragment extends Fragment {
         artworkAdapter = new ArtworkAdapter();
         artworksRecyclerView.setAdapter(artworkAdapter);
 
-        // Set the click listener for the artwork items
         artworkAdapter.setOnItemClickListener(artwork -> {
             Bundle args = new Bundle();
             args.putString("sourceArtworkId", artwork.getSourceArtworkId());
@@ -133,5 +132,16 @@ public class CollectionDetailFragment extends Fragment {
     private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(collectionNameEdit.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        View backSection = view.findViewById(R.id.back_section);
+
+        backSection.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigateUp();
+        });
     }
 }
