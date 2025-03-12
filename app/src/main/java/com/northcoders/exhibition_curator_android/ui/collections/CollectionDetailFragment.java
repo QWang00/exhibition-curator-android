@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.northcoders.exhibition_curator_android.R;
@@ -56,6 +57,17 @@ public class CollectionDetailFragment extends Fragment {
         artworkAdapter = new ArtworkAdapter();
         artworksRecyclerView.setAdapter(artworkAdapter);
 
+        // Set the click listener for the artwork items
+        artworkAdapter.setOnItemClickListener(artwork -> {
+            Bundle args = new Bundle();
+            args.putString("sourceArtworkId", artwork.getSourceArtworkId());
+            args.putString("museumName", artwork.getMuseumName());
+
+            Navigation.findNavController(view).navigate(
+                    R.id.action_navigation_collection_detail_to_navigation_artwork_details,
+                    args
+            );
+        });
         if (collectionId != null) {
             collectionViewModel.getCollectionById(collectionId).observe(getViewLifecycleOwner(), collection -> {
                 if (collection != null) {
