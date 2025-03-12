@@ -85,7 +85,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_heart_outline"
-                        android:contentDescription="Save / Remove"
+                        android:contentDescription="Save"
                         android:padding="4dp"
                         android:clickable="true"
                         android:focusable="true"/>
@@ -94,7 +94,7 @@
                         android:id="@+id/save_to_collection_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Save to Collection"
+                        android:text="Save / Remove"
                         android:textSize="16sp"
                         android:textColor="@color/accent_cyan"
                         android:textStyle="bold"
