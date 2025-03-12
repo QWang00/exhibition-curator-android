@@ -42,4 +42,7 @@ public interface CollectionApiService {
             @Path("exhibitionId") Long exhibitionId,
             @Path("artworkId") Long artworkId
     );
+
+    @POST("exhibition/{collectionId}/artworks/local")
+    Call<Collection> addArtworkToCollectionFromLocal(@Path("collectionId") Long collectionId, @Query("artworkId") Long artworkId);
 }
