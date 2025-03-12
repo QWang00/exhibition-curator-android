@@ -54,7 +54,7 @@ public class SearchFragment extends Fragment {
         });
 
         aiSearchButton.setOnClickListener(v -> {
-            String userPrompt = "randomly pick 4 below artworks.make sure only givemie two artworks from each museum.no introduction & description.if no artworks only artist, just list artist,otherwise list title&artist categorized by museum name.Harvard Art Museum: The Breakfast Table(John Singer Sargent);Pablo Ruiz Picasso;Self-Portrait Dedicated to Paul Gauguin(Vincent van Gogh);Self-Portrait in Tuxedo(Max Beckmann);Arrival of a Train(Claude Monet);Kneeling Attendant Bodhisattva;Emergency stater of Athens;Small jar with anthropomorphic cover; Cleveland Museum of Art: La Vie;Armor for Man and Horse with Völs-Colonna Arms;The Red Kerchief;Claude Monet;Vincent van Gogh;Portrait of Tieleman Roosterman;Cupid and Psyche(Jacques-Louis David)";
+            String userPrompt = "randomly pick 4 below artworks.make sure only givemie two artworks from each museum.no introduction & description.if no artworks only artist, just list artist,otherwise list title&artist categorized by museum name.Harvard Art Museum: The Breakfast Table(John Singer Sargent);Pablo Ruiz Picasso;Self-Portrait Dedicated to Paul Gauguin(Vincent van Gogh);Self-Portrait in Tuxedo(Max Beckmann);Arrival of a Train(Claude Monet);Kneeling Attendant Bodhisattva;Emergency stater of Athens;Small jar with anthropomorphic cover; Cleveland Museum of Art: La Vie;Armor for Man and Horse with Völs-Colonna Arms;The Red Kerchief;Claude Monet;Vincent van Gogh;Portrait of Tieleman Roosterman;Cupid and Psyche(Jacques-Louis David).Ensure the selection and details are different every time";
             chatViewModel.callChatGPT(userPrompt);
         });
 
