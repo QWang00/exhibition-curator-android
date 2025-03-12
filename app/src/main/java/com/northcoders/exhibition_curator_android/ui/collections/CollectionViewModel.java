@@ -37,4 +37,8 @@ public class CollectionViewModel extends ViewModel {
         return collectionRepository.updateCollectionName(id, newName);
     }
 
+    public LiveData<Collection> addArtworkToCollectionFromLocal(Long collectionId, Long artworkId){
+        return collectionRepository.addArtworkToCollectionFromLocal(collectionId, artworkId);
+    }
+
 }
