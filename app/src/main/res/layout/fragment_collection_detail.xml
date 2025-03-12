@@ -18,6 +18,41 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Back Icon and Text -->
+    <RelativeLayout
+        android:id="@+id/back_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_arrow"
+            app:tint="@color/accent_cyan"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- Back Text -->
+        <TextView
+            android:id="@+id/back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="20sp"
+            android:textColor="@color/accent_cyan"
+            android:layout_toEndOf="@id/back_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"/>
+    </RelativeLayout>
+
+
     <!-- Collection Name and Edit Icon -->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +71,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"/>
 
-        <!-- Edit Text (Initially Hidden) -->
+        <!-- Edit Text -->
         <EditText
             android:id="@+id/collection_name_edit"
             android:layout_width="match_parent"
@@ -73,4 +108,5 @@
         android:padding="8dp"
         android:layout_marginBottom="16dp"
         android:overScrollMode="never"/>
+
 </LinearLayout>
