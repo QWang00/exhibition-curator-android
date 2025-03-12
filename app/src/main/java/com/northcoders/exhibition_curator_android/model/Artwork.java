@@ -18,7 +18,6 @@ public class Artwork {
 
     }
 
-    // Constructor
     public Artwork(Long id, String sourceArtworkId, String imageUrl, String museumName,
                    String title, String yearMade, String artist, String culture,
                    String artistActiveYear, String description, String tombstone, String preview) {
@@ -36,7 +35,6 @@ public class Artwork {
         this.preview = preview;
     }
 
-    // Getters
     public Long getId() { return id; }
     public String getSourceArtworkId() { return sourceArtworkId; }
     public String getImageUrl() { return imageUrl; }

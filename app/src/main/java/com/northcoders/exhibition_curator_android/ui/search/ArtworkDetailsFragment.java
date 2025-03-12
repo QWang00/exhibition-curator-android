@@ -120,7 +120,7 @@ public class ArtworkDetailsFragment extends Fragment {
         TextView cancelButton = sheetView.findViewById(R.id.cancel_button);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CollectionAdapter adapter = new CollectionAdapter(new ArrayList<>()); // ✅ Use mutable list
+        CollectionAdapter adapter = new CollectionAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
 
         collectionViewModel.fetchAllCollections().observe(getViewLifecycleOwner(), collections -> {
@@ -158,7 +158,6 @@ public class ArtworkDetailsFragment extends Fragment {
 
     private void saveArtworkToCollection(Long collectionId) {
         if (isFromLocalDatabase) {
-            // Add artwork from local database using artworkId
             Long artworkId = artworkViewModel.getArtworkIdLiveData().getValue();
             if (artworkId == null) return;
 

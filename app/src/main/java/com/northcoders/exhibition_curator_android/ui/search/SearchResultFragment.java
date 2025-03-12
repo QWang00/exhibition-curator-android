@@ -38,7 +38,6 @@ public class SearchResultFragment extends Fragment {
 
         artworkViewModel = new ViewModelProvider(this).get(ArtworkViewModel.class);
 
-        // Get search parameters
         Bundle args = getArguments();
         if (args != null) {
             museum = args.getString("museum");
@@ -46,18 +45,15 @@ public class SearchResultFragment extends Fragment {
             artist = args.getString("artist");
             currentPage = args.getInt("page", 1);
 
-            // Perform search
             artworkViewModel.searchArtworks(museum, keyword, artist, currentPage);
         }
 
-        // Observe artwork data
         artworkViewModel.getArtworksLiveData().observe(getViewLifecycleOwner(), artworks -> {
             if (artworks != null) {
                 displayArtworks(artworks);
             }
         });
 
-        // Handle pagination
         nextButton.setOnClickListener(v -> {
             currentPage = artworkViewModel.getCurrentPageLiveData().getValue() + 1;
             artworkViewModel.searchArtworks(museum, keyword, artist, currentPage);
@@ -115,7 +111,6 @@ public class SearchResultFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // New Search click handler
         view.findViewById(R.id.new_search).setOnClickListener(v -> {
             NavOptions options = new NavOptions.Builder()
                     .setPopUpTo(R.id.navigation_search, true)

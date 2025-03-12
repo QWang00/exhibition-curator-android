@@ -38,7 +38,6 @@ public class ArtworkViewModel extends ViewModel {
         return currentPageLiveData;
     }
 
-    // New LiveData method for artwork details
     public LiveData<Artwork> getArtworkDetailsLiveData() {
         return artworkDetailsLiveData;
     }
@@ -85,7 +84,6 @@ public class ArtworkViewModel extends ViewModel {
         }
     }
 
-    // New method to fetch artwork details
     public void getArtworkDetails(String museum, String sourceId) {
         artworkApiService.getArtworkDetails(museum, sourceId)
                 .enqueue(new Callback<Artwork>() {

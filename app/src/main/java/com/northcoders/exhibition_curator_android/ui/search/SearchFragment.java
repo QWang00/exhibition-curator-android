@@ -43,13 +43,13 @@ public class SearchFragment extends Fragment {
         btnSearchKeyword = view.findViewById(R.id.btn_search_keyword);
         btnSearchArtist = view.findViewById(R.id.btn_search_artist);
 
-        // Both buttons trigger the same search function
+
         btnSearchKeyword.setOnClickListener(v -> performSearch(v));
         btnSearchArtist.setOnClickListener(v -> performSearch(v));
 
         chatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
         chatViewModel.getChatResponseLiveData().observe(getViewLifecycleOwner(), response -> {
-            // Update UI with GPT response
+
             aiGeneratedText.setText(response);
         });
 

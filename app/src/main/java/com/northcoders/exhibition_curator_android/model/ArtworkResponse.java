@@ -9,7 +9,6 @@ public class ArtworkResponse {
     private Integer prevPage;
     private Integer currentPage;
 
-    // Getters
     public List<Artwork> getArtworks() { return artworks; }
     public Integer getNextPage() { return nextPage; }
     public Integer getPrevPage() { return prevPage; }

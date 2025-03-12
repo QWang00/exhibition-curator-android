@@ -25,13 +25,11 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
-        // Set up navigation with proper back stack handling
         NavigationUI.setupWithNavController(navView, navController);
 
         // Custom navigation handling
         navView.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.navigation_search) {
-                // Clear back stack when returning to search
                 navController.popBackStack(R.id.navigation_search, false);
             }
             return NavigationUI.onNavDestinationSelected(item, navController)

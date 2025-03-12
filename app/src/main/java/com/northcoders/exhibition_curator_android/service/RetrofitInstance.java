@@ -9,10 +9,8 @@ public class RetrofitInstance {
     private static Retrofit retrofit = null;
     private final static String BASE_URL = "http://10.0.2.2:8080/api/v1/";
 
-    // Initialize Retrofit instance if not already created
     private static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
-            // Add logging interceptor for debugging API requests
             HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -29,12 +27,10 @@ public class RetrofitInstance {
         return retrofit;
     }
 
-    // Provide API service for Artworks
     public static ArtworkApiService getArtworkService() {
         return getRetrofitInstance().create(ArtworkApiService.class);
     }
 
-    // Provide API service for Exhibitions (Collections)
     public static CollectionApiService getCollectionService() {
         return getRetrofitInstance().create(CollectionApiService.class);
     }
