@@ -31,6 +31,7 @@ public class ArtworkDetailsFragment extends Fragment {
     private TextView previewText, descriptionText;
     private ImageView artworkImage, heartIcon;
 
+    private boolean isFromLocalDatabase = false;
 
     @Nullable
     @Override
@@ -92,6 +93,7 @@ public class ArtworkDetailsFragment extends Fragment {
                             artworkViewModel.setSavedCollectionId(collection.getId());
                             artworkViewModel.setArtworkId(artwork.getId());
                             artworkViewModel.setIsSaved(true);
+                            isFromLocalDatabase = true;
                             found = true;
                             break;
                         }
@@ -103,6 +105,7 @@ public class ArtworkDetailsFragment extends Fragment {
                 artworkViewModel.setIsSaved(false);
                 artworkViewModel.setSavedCollectionId(null);
                 artworkViewModel.setArtworkId(null);
+                isFromLocalDatabase = false;
             }
         });
     }
@@ -154,21 +157,36 @@ public class ArtworkDetailsFragment extends Fragment {
     }
 
     private void saveArtworkToCollection(Long collectionId) {
-        collectionViewModel.addArtworkToCollection(collectionId, sourceArtworkId, museumName)
-                .observe(getViewLifecycleOwner(), updatedCollection -> {
-                    if (updatedCollection != null) {
-                        artworkViewModel.setIsSaved(true);
-                        artworkViewModel.setSavedCollectionId(collectionId);
+        if (isFromLocalDatabase) {
+            // Add artwork from local database using artworkId
+            Long artworkId = artworkViewModel.getArtworkIdLiveData().getValue();
+            if (artworkId == null) return;
 
-                        for (Artwork artwork : updatedCollection.getArtworks()) {
-                            if (artwork.getSourceArtworkId().equals(sourceArtworkId)) {
-                                artworkViewModel.setArtworkId(artwork.getId());
-                                break;
-                            }
+            collectionViewModel.addArtworkToCollectionFromLocal(collectionId, artworkId)
+                    .observe(getViewLifecycleOwner(), updatedCollection -> {
+                        if (updatedCollection != null) {
+                            artworkViewModel.setIsSaved(true);
+                            artworkViewModel.setSavedCollectionId(collectionId);
+                            Toast.makeText(getContext(), "Saved successfully", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(getContext(), "Saved successfully", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    });
+        } else {
+            collectionViewModel.addArtworkToCollection(collectionId, sourceArtworkId, museumName)
+                    .observe(getViewLifecycleOwner(), updatedCollection -> {
+                        if (updatedCollection != null) {
+                            artworkViewModel.setIsSaved(true);
+                            artworkViewModel.setSavedCollectionId(collectionId);
+
+                            for (Artwork artwork : updatedCollection.getArtworks()) {
+                                if (artwork.getSourceArtworkId().equals(sourceArtworkId)) {
+                                    artworkViewModel.setArtworkId(artwork.getId());
+                                    break;
+                                }
+                            }
+                            Toast.makeText(getContext(), "Saved successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void updateHeartIcon(boolean isSaved) {
