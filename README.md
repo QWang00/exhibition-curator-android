@@ -46,12 +46,6 @@ and testing purposes:
    ```
 3. Run the Exhibition Curator API in the background.
 
-## Usage
-
-Demo video:
-
-<img src="gif1.gif" width="300">
-
 
 ## Acknowledgments
 
