@@ -11,14 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Collection Name"
-        app:hintTextColor="@color/white"
+        app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/primary_accent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/collection_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"
             android:textColorHint="@color/grey"/>
     </com.google.android.material.textfield.TextInputLayout>
 
