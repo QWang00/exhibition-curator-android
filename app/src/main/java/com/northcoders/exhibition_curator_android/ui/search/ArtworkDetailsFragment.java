@@ -151,8 +151,11 @@ public class ArtworkDetailsFragment extends Fragment {
                         artworkViewModel.setIsSaved(false);
                         artworkViewModel.setSavedCollectionId(null);
                         artworkViewModel.setArtworkId(null);
+                        updateHeartIcon(false);
                         Toast.makeText(getContext(), "Removed successfully", Toast.LENGTH_SHORT).show();
-                    }
+                    }  else {
+            Toast.makeText(getContext(), "Failed to remove artwork.", Toast.LENGTH_SHORT).show();
+        }
                 });
     }
 
@@ -189,8 +192,22 @@ public class ArtworkDetailsFragment extends Fragment {
     }
 
     private void updateHeartIcon(boolean isSaved) {
-        heartIcon.setImageResource(isSaved ?
-                R.drawable.ic_heart_filled : R.drawable.ic_heart_outline);
+        if (isFromLocalDatabase) {
+            // Artwork is from the local database
+            if (isSaved) {
+                // Artwork is saved: show filled heart and disable the icon
+                heartIcon.setImageResource(R.drawable.ic_heart_filled);
+                heartIcon.setEnabled(false); // Disable the heart icon
+            } else {
+                // Artwork is removed: show unfilled heart and disable the icon
+                heartIcon.setImageResource(R.drawable.ic_heart_outline);
+                heartIcon.setEnabled(false); // Disable the heart icon
+            }
+        } else {
+            // Artwork is from the external API
+            heartIcon.setImageResource(isSaved ? R.drawable.ic_heart_filled : R.drawable.ic_heart_outline);
+            heartIcon.setEnabled(true); // Enable the heart icon
+        }
     }
 
     @Override
