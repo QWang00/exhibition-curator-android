@@ -45,6 +45,8 @@ public class SearchResultFragment extends Fragment {
             artist = args.getString("artist");
             currentPage = args.getInt("page", 1);
 
+            showLoadingState();
+
             artworkViewModel.searchArtworks(museum, keyword, artist, currentPage);
         }
 
@@ -70,7 +72,7 @@ public class SearchResultFragment extends Fragment {
     }
 
     private void displayArtworks(List<Artwork> artworks) {
-        artworkContainer.removeAllViews(); // Clear previous results
+        artworkContainer.removeAllViews();
         if (artworks == null || artworks.isEmpty()) {
             TextView emptyView = new TextView(requireContext());
             emptyView.setText("No artworks found");
@@ -123,5 +125,19 @@ public class SearchResultFragment extends Fragment {
             );
         });
     }
+
+    private void showLoadingState() {
+        artworkContainer.removeAllViews();
+
+        TextView loadingView = new TextView(requireContext());
+        loadingView.setText("Searching artworks...");
+        loadingView.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary_accent));
+        loadingView.setTextSize(23);
+        loadingView.setGravity(Gravity.CENTER);
+        loadingView.setTag("loading");
+
+        artworkContainer.addView(loadingView);
+    }
+
 
 }
