@@ -32,5 +32,6 @@
         android:text="Create"
         android:textColor="@color/white"
         android:backgroundTint="@color/primary_accent"
+        android:contentDescription="Create"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

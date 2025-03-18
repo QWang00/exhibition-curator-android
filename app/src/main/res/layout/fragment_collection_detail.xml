@@ -96,6 +96,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:clickable="true"
+            android:contentDescription="Edit the collection name"
             android:focusable="true"/>
     </RelativeLayout>
 
