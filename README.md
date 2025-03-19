@@ -1,4 +1,7 @@
 # Exhibition Curator
+Check out our detailed walkthrough video on YouTube to see how you can maximize 
+
+your experience with the Exhibition Curator app. [Watch it here](https://youtu.be/WScw7vQYn58)
 
 <img src="gif1.gif" width="300">
 
